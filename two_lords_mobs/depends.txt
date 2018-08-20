@@ -1,0 +1,6 @@
+default
+rings_of_power
+mobs
+mobs_animal
+two_lords_armor
+two_lords_ore
