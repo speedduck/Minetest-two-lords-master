@@ -85,8 +85,8 @@ local dwarf_immunity = {
 	{"default:sword_diamond", 0}, -- no damage
 	{"default:stone", -1}, -- heals by 1 points
 	{"default:coal", -5}, -- heals by 5 points
-	{"default:apple", -10}, -- heals by 10 points
-	{"default:gold", -20}, -- heals by 20 points
+	{"default:wheat", -10}, -- heals by 10 points
+	{"default:gold_ingot", -20}, -- heals by 20 points
 }
 
 -- Basic Dwarf

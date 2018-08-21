@@ -87,7 +87,7 @@ local nazgul_immunity = {
 -- Nazgul
 local textures1 = {
 	{"two_lords_nazgul.png"},
-	{"two_lords_nazgul^two_lords_armor_helmet_morgul.png^two_lords_armor_chestplate_morgul.png^two_lords_armor_leggings_morgul.png^two_lords_armor_boots_morgul.png"},
+	{"two_lords_nazgul.png^two_lords_armor_helmet_morgul.png^two_lords_armor_chestplate_morgul.png^two_lords_armor_leggings_morgul.png^two_lords_armor_boots_morgul.png"},
 }
 
 local drops1 = {

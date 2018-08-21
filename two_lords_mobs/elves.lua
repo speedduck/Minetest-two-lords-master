@@ -104,7 +104,7 @@ local elf_immunity = {
 	{"two_lords_ore:sword_lorien", 0}, -- no damage
 	{"default:leaves", -1}, -- heals by 1 points
 	{"default:tree", -5}, -- heals by 5 points
-	{"default:apple", -10}, -- heals by 10 points
+	{"default:wheat", -10}, -- heals by 10 points
 	{"two_lords_mobs:lembas_bread", -20}, -- heals by 20 points
 }
 
