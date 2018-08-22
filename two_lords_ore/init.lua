@@ -36,22 +36,22 @@ minetest.register_ore({
 	y_max     = 0,
 })
 
-minetest.register_craftitem("two_lords_ore:mithril_lump", {
-	description = "Mithril Lump",
-	inventory_image = "two_lords_ore_mithril_lump.png",
+minetest.register_craftitem("two_lords_ore:khazad_dum_lump", {
+	description = "Khazad-dûm Lump",
+	inventory_image = "two_lords_ore_khazad_dum_lump.png",
 })
 
-minetest.register_node("two_lords_ore:stone_with_mithril", {
-	description = "Mithril Ore",
-	tiles = {"default_stone.png^two_lords_ore_mineral_mithril.png"},
+minetest.register_node("two_lords_ore:stone_with_khazad_dum", {
+	description = "Khazad-dûm Ore",
+	tiles = {"default_stone.png^two_lords_ore_mineral_khazad_dum.png"},
 	groups = {cracky = 1},
-	drop = "two_lords_ore:mithril_lump",
+	drop = "two_lords_ore:khazad_dum_lump",
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_ore({
 	ore_type       = "scatter",
-	ore            = "two_lords_ore:stone_with_mithril",
+	ore            = "two_lords_ore:stone_with_khazad_dum",
 	wherein        = "default:stone",
 	clust_scarcity = 10 * 10 * 10,
 	clust_num_ores = 8,
@@ -62,7 +62,7 @@ minetest.register_ore({
 
 minetest.register_ore({
 	ore_type       = "scatter",
-	ore            = "two_lords_ore:stone_with_mithril",
+	ore            = "two_lords_ore:stone_with_khazad_dum",
 	wherein        = "default:stone",
 	clust_scarcity = 13 * 13 * 13,
 	clust_num_ores = 8,
@@ -93,9 +93,9 @@ minetest.register_craftitem("two_lords_ore:morgul_ingot", {
 	inventory_image = "two_lords_ore_morgul_ingot.png",
 })
 
-minetest.register_craftitem("two_lords_ore:mithril_ingot", {
-	description = "Mithril Ingot",
-	inventory_image = "two_lords_ore_mithril_ingot.png",
+minetest.register_craftitem("two_lords_ore:khazad_dum_ingot", {
+	description = "Khazad-dûm Ingot",
+	inventory_image = "two_lords_ore_khazad_dum_ingot.png",
 })
 
 minetest.register_craftitem("two_lords_ore:lorien_ingot", {
@@ -134,9 +134,9 @@ minetest.register_node("two_lords_ore:gundabad_block", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("two_lords_ore:mithril_block", {
-	description = "Mithril Block",
-	tiles = {"two_lords_ore_mithril_block.png"},
+minetest.register_node("two_lords_ore:khazad_dum_block", {
+	description = "Khazad-dûm Block",
+	tiles = {"two_lords_ore_khazad_dum_block.png"},
 	is_ground_content = false,
 	groups = {cracky = 1, level = 3},
 	sounds = default.node_sound_stone_defaults(),
@@ -246,11 +246,11 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'two_lords_ore:mithril_block',
+	output = 'two_lords_ore:khazad_dum_block',
 	recipe = {
-		{'two_lords_ore:mithril_ingot', 'two_lords_ore:mithril_ingot', 'two_lords_ore:mithril_ingot'},
-		{'two_lords_ore:mithril_ingot', 'two_lords_ore:mithril_ingot', 'two_lords_ore:mithril_ingot'},
-		{'two_lords_ore:mithril_ingot', 'two_lords_ore:mithril_ingot', 'two_lords_ore:mithril_ingot'},
+		{'two_lords_ore:khazad_dum_ingot', 'two_lords_ore:khazad_dum_ingot', 'two_lords_ore:khazad_dum_ingot'},
+		{'two_lords_ore:khazad_dum_ingot', 'two_lords_ore:khazad_dum_ingot', 'two_lords_ore:khazad_dum_ingot'},
+		{'two_lords_ore:khazad_dum_ingot', 'two_lords_ore:khazad_dum_ingot', 'two_lords_ore:khazad_dum_ingot'},
 	}
 })
 
@@ -294,9 +294,9 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'two_lords_ore:mithril_ingot 9',
+	output = 'two_lords_ore:khazad_dum_ingot 9',
 	recipe = {
-		{'two_lords_ore:mithril_block'},
+		{'two_lords_ore:khazad_dum_block'},
 	}
 })
 
@@ -331,14 +331,14 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'two_lords_ore:lorien_ingot 2',
 	recipe = {
-		{'two_lords_ore:mithril_ingot', 'default:mese_crystal'},
+		{'two_lords_ore:khazad_dum_ingot', 'default:mese_crystal'},
 	}
 })
 
 minetest.register_craft({
 	output = 'two_lords_ore:rivendell_ingot 2',
 	recipe = {
-		{'two_lords_ore:mithril_ingot', 'default:diamond'},
+		{'two_lords_ore:khazad_dum_ingot', 'default:diamond'},
 	}
 })
 
@@ -388,8 +388,8 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "cooking",
-	output = "two_lords_ore:mithril_ingot",
-	recipe = "two_lords_ore:mithril_lump",
+	output = "two_lords_ore:khazad_dum_ingot",
+	recipe = "two_lords_ore:khazad_dum_lump",
 })
 
 minetest.register_craft({

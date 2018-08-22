@@ -31,9 +31,9 @@ minetest.register_tool("two_lords_armor:helmet_orc", {
 	wear = 0,
 })
 
-minetest.register_tool("two_lords_armor:helmet_mithril", {
-	description = "Mithril Helmet",
-	inventory_image = "two_lords_armor_inv_helmet_mithril.png",
+minetest.register_tool("two_lords_armor:helmet_khazad_dum", {
+	description = "Khazad-dûm Helmet",
+	inventory_image = "two_lords_armor_inv_helmet_khazad_dum.png",
 	groups = {armor_head=14, armor_heal=10, armor_use=75},
 	wear = 0,
 })
@@ -82,9 +82,9 @@ minetest.register_tool("two_lords_armor:chestplate_orc", {
 	wear = 0,
 })
 
-minetest.register_tool("two_lords_armor:chestplate_mithril", {
-	description = "Mithril Chestplate",
-	inventory_image = "two_lords_armor_inv_chestplate_mithril.png",
+minetest.register_tool("two_lords_armor:chestplate_khazad_dum", {
+	description = "Khazad-dûm Chestplate",
+	inventory_image = "two_lords_armor_inv_chestplate_khazad_dum.png",
 	groups = {armor_torso=19, armor_heal=10, armor_use=75},
 	wear = 0,
 })
@@ -133,9 +133,9 @@ minetest.register_tool("two_lords_armor:leggings_orc", {
 	wear = 0,
 })
 
-minetest.register_tool("two_lords_armor:leggings_mithril", {
-	description = "Mithril Leggings",
-	inventory_image = "two_lords_armor_inv_leggings_mithril.png",
+minetest.register_tool("two_lords_armor:leggings_khazad_dum", {
+	description = "Khazad-dûm Leggings",
+	inventory_image = "two_lords_armor_inv_leggings_khazad_dum.png",
 	groups = {armor_legs=19, armor_heal=10, armor_use=75},
 	wear = 0,
 })
@@ -184,9 +184,9 @@ minetest.register_tool("two_lords_armor:boots_orc", {
 	wear = 0,
 })
 
-minetest.register_tool("two_lords_armor:boots_mithril", {
-	description = "Mithril Boots",
-	inventory_image = "two_lords_armor_inv_boots_mithril.png",
+minetest.register_tool("two_lords_armor:boots_khazad_dum", {
+	description = "Khazad-dûm Boots",
+	inventory_image = "two_lords_armor_inv_boots_khazad_dum.png",
 	groups = {armor_feet=14, armor_heal=10, armor_use=75},
 	wear = 0,
 })
@@ -217,7 +217,7 @@ minetest.register_tool("two_lords_armor:boots_rivendell", {
 local craft_ingreds = {
 	gundabad = "two_lords_ore:gundabad_ingot",
 	morgul = "two_lords_ore:morgul_ingot",
-	mithril = "two_lords_ore:mithril_ingot",
+	khazad_dum = "two_lords_ore:khazad_dum_ingot",
 	lorien = "two_lords_ore:lorien_ingot",
 	rivendell = "two_lords_ore:rivendell_ingot",
 }

@@ -119,9 +119,9 @@ two_lords_mobs.register_dwarf("dwarf", 70, 90, textures1, 8, 1, 3, 3, 200, drops
 -- Dwarf Guards
 
 local textures2 = {
-	{"two_lords_dwarf1.png^two_lords_armor_helmet_mithril.png^two_lords_armor_chestplate_mithril.png^two_lords_armor_leggings_mithril.png^two_lords_armor_boots_mithril.png"},
-	{"two_lords_dwarf2.png^two_lords_armor_helmet_mithril.png^two_lords_armor_chestplate_mithril.png^two_lords_armor_leggings_mithril.png^two_lords_armor_boots_mithril.png"},
-	{"two_lords_dwarf3.png^two_lords_armor_helmet_mithril.png^two_lords_armor_chestplate_mithril.png^two_lords_armor_leggings_mithril.png^two_lords_armor_boots_mithril.png"},
+	{"two_lords_dwarf1.png^two_lords_armor_helmet_khazad_dum.png^two_lords_armor_chestplate_khazad_dum.png^two_lords_armor_leggings_khazad_dum.png^two_lords_armor_boots_khazad_dum.png"},
+	{"two_lords_dwarf2.png^two_lords_armor_helmet_khazad_dum.png^two_lords_armor_chestplate_khazad_dum.png^two_lords_armor_leggings_khazad_dum.png^two_lords_armor_boots_khazad_dum.png"},
+	{"two_lords_dwarf3.png^two_lords_armor_helmet_khazad_dum.png^two_lords_armor_chestplate_khazad_dum.png^two_lords_armor_leggings_khazad_dum.png^two_lords_armor_boots_khazad_dum.png"},
 }
 
 local drops2 = {
@@ -129,19 +129,19 @@ local drops2 = {
 	chance = 1000,
 	min = 1,
 	max = 1,},
-	{name = "two_lords_armor:helmet_mithril",
+	{name = "two_lords_armor:helmet_khazad_dum",
 	chance = 500,
 	min = 1,
 	max = 1,},
-	{name = "two_lords_armor:chestplate_mithril",
+	{name = "two_lords_armor:chestplate_khazad_dum",
 	chance = 750,
 	min = 1,
 	max = 1,},
-	{name = "two_lords_armor:leggings_mithril",
+	{name = "two_lords_armor:leggings_khazad_dum",
 	chance = 600,
 	min = 1,
 	max = 1,},
-	{name = "two_lords_armor:boots_mithril",
+	{name = "two_lords_armor:boots_khazad_dum",
 	chance = 400,
 	min = 1,
 	max = 1,},
