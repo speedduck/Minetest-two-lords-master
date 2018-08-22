@@ -1,6 +1,36 @@
 
 -- Register Items
 
+minetest.register_craftitem("two_lords_mobs:elf_contract", {
+    description = "An Elven Contract(Right-click elf to pickup)",
+    inventory_image = "two_lords_contract.png",
+	stack_max = 200,
+})
+
+minetest.register_craftitem("two_lords_mobs:dwarf_contract", {
+    description = "A Dwarven Contract(Right-click dwarf to pickup)",
+    inventory_image = "two_lords_contract.png",
+	stack_max = 200,
+})
+
+minetest.register_craftitem("two_lords_mobs:orc_contract", {
+    description = "An Orc Contract(Right-click orc to pickup)",
+    inventory_image = "two_lords_contract.png",
+	stack_max = 200,
+})
+
+minetest.register_craftitem("two_lords_mobs:goblin_contract", {
+    description = "A Goblin Contract(Right-click goblin to pickup)",
+    inventory_image = "two_lords_contract.png",
+	stack_max = 200,
+})
+
+minetest.register_craftitem("two_lords_mobs:parchment", {
+    description = "Parchment(Used for contracts)",
+    inventory_image = "two_lords_parchment.png",
+	stack_max = 200,
+})
+
 minetest.register_craftitem("two_lords_mobs:wooden_bowl", {
     description = "A Simple Wooden Bowl",
     inventory_image = "two_lords_wooden_bowl.png",
@@ -82,11 +112,35 @@ for k, v in pairs(wood) do
 	})
 end
 
+local contracts = {
+	elf = 'tree 5',
+	dwarf = 'steel_ingot 2',
+	orc = 'sword_steel',
+	goblin = 'stone 3'
+}
+
+for k, v in pairs(contracts) do
+	minetest.register_craft({
+		output = 'two_lords_mobs:' .. k .. '_contract 2',
+		recipe = {
+			{'default:' .. v,'default:' .. v,'default:' .. v},
+			{'two_lords_mobs:parchment','default:diamond','two_lords_mobs:parchment'},
+		}
+	})
+end
+
+minetest.register_craft({
+	output = "two_lords_mobs:parchment 4",
+	recipe = {
+		{"default:paper", "default:paper"},
+		{"default:paper", "default:paper"},
+	}
+})
+
 minetest.register_craft({
 	output = "wool:white 8",
 	recipe = {
 		{'bucket:bucket_water', "two_lords_mobs:wool_dirty", "two_lords_mobs:wool_dirty"},
-		{"two_lords_mobs:wool_dirty", "two_lords_mobs:wool_dirty", "two_lords_mobs:wool_dirty"},
 		{"two_lords_mobs:wool_dirty", "two_lords_mobs:wool_dirty", "two_lords_mobs:wool_dirty"},
 	}
 })

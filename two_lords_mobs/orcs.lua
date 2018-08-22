@@ -5,7 +5,7 @@ local S = two_lords_mobs.intllib
 
 -- Orcs
 
-function two_lords_mobs.register_orc(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg)
+function two_lords_mobs.register_orc(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg, pitem)
 	mobs:register_mob("two_lords_mobs:" .. n,{
 		type = "monster",
 		hp_min = hpmin,
@@ -63,6 +63,14 @@ function two_lords_mobs.register_orc(n, hpmin, hpmax, textures, vr, wv, rv, damg
 	--			two_lords_mobs.change_player_alignment(clicker, -1)
 	--		end
 		end,
+		on_rightclick = function(self, clicker)
+			tool = clicker:get_wielded_item():get_name()
+			if tool == pitem then
+				clicker:get_inventory():remove_item("main", pitem)
+				clicker:get_inventory():add_item("main", "two_lords_mobs:" .. n)
+				self.object:remove()
+			end
+		end,
 		step = 1,
 	})
 	mobs:spawn({
@@ -93,6 +101,8 @@ mobs:register_arrow("two_lords_mobs:orcarrow", {
 	end,
 	hit_node = nil
 })
+
+local pickup_item = "two_lords_mobs:orc_contract"
 
 local orc_immunity = {
 	{"two_lords_ore:sword_gundabad", 0}, -- no damage
@@ -140,7 +150,7 @@ local spawn_nodes1 = {
 	{"default:desert_sand"},
 }
 
-two_lords_mobs.register_orc("orc", 50, 60, textures1, 17.5, 2.5, 5, 6, 250, drops1, "dogfight", nil, nil, "rings_of_power:evil_ring", 1, orc_immunity, "default:dirt_with_grass", 10000, "Orc", "default_stone.png")
+two_lords_mobs.register_orc("orc", 50, 60, textures1, 17.5, 2.5, 5, 6, 250, drops1, "dogfight", nil, nil, "rings_of_power:evil_ring", 1, orc_immunity, "default:dirt_with_grass", 10000, "Orc", "default_stone.png", pickup_item)
 
 -- Orc Guard
 
@@ -187,7 +197,7 @@ local spawn_nodes2 = {
 	{"default:desert_sand"},
 }
 
-two_lords_mobs.register_orc("orc_guard", 60, 80, textures2, 17.5, 2, 4, 10, 75, drops2, "dogfight", nil, nil, "rings_of_power:evil_ring", 2, orc_immunity, "default:dirt_with_grass", 20000, "Orc Guard", "default_stone.png")
+two_lords_mobs.register_orc("orc_guard", 60, 80, textures2, 17.5, 2, 4, 10, 75, drops2, "dogfight", nil, nil, "rings_of_power:evil_ring", 2, orc_immunity, "default:dirt_with_grass", 20000, "Orc Guard", "default_stone.png", pickup_item)
 
 -- Orc Archer
 
@@ -234,6 +244,6 @@ local spawn_nodes3 = {
 	node3 = "default:desert_sand",
 }
 
-two_lords_mobs.register_orc("orc_archer", 45, 65, textures3, 17.5, 1, 2, 7.5, 300, drops3, "dogshoot", "two_lords_mobs:orcarrow", 3, "rings_of_power:evil_ring", 1, orc_immunity, "default:dirt_with_grass", 40000, "Orc Archer", "default_stone.png")
+two_lords_mobs.register_orc("orc_archer", 45, 65, textures3, 17.5, 1, 2, 7.5, 300, drops3, "dogshoot", "two_lords_mobs:orcarrow", 3, "rings_of_power:evil_ring", 1, orc_immunity, "default:dirt_with_grass", 40000, "Orc Archer", "default_stone.png", pickup_item)
 
 minetest.log("action", "orcend")

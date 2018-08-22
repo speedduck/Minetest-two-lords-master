@@ -5,7 +5,7 @@ local S = two_lords_mobs.intllib
 
 -- Elves
 
-function two_lords_mobs.register_elf(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg)
+function two_lords_mobs.register_elf(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg, pitem)
 	mobs:register_mob("two_lords_mobs:" .. n,{
 		type = "npc",
 		hp_min = hpmin,
@@ -68,6 +68,14 @@ function two_lords_mobs.register_elf(n, hpmin, hpmax, textures, vr, wv, rv, damg
 	--			two_lords_mobs.change_player_alignment(clicker, -1)
 	--		end
 		end,
+		on_rightclick = function(self, clicker)
+			tool = clicker:get_wielded_item():get_name()
+			if tool == pitem then
+				clicker:get_inventory():remove_item("main", pitem)
+				clicker:get_inventory():add_item("main", "two_lords_mobs:" .. n)
+				self.object:remove()
+			end
+		end,
 		step = 1,
 	})
 	mobs:spawn({
@@ -99,6 +107,8 @@ mobs:register_arrow("two_lords_mobs:elfarrow", {
 	hit_node = nil
 })
 
+local pickup_item = "two_lords_mobs:elf_contract"
+
 local elf_immunity = {
 	{"two_lords_ore:sword_rivendell", 0}, -- no damage
 	{"two_lords_ore:sword_lorien", 0}, -- no damage
@@ -127,7 +137,7 @@ local drops_basic_elf = {
 	max = 3,}
 }
 
-two_lords_mobs.register_elf("elf", 40, 60, textures_basic_elf, 20, 2, 4, 5, 250, drops_basic_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1, elf_immunity, "default:dirt_with_grass", 10000, "Elf", "default_tree.png")
+two_lords_mobs.register_elf("elf", 40, 60, textures_basic_elf, 20, 2, 4, 5, 250, drops_basic_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1, elf_immunity, "default:dirt_with_grass", 10000, "Elf", "default_tree.png", pickup_item)
 
 -- Elf Guards
 
@@ -232,9 +242,9 @@ local drops_forest_elf = {
 	max = 1,}
 }
 
-two_lords_mobs.register_elf("rivendell_guard", 70, 90, textures_guard_elf_1, 21, 2.5, 5, 10, 70, drops_rivendell_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 2.5, elf_immunity, "default:dirt_with_grass", 40000, "Rivendell Guard", "default_steel_ingot.png")
-two_lords_mobs.register_elf("lorien_guard", 60, 80, textures_guard_elf_2, 21, 2.5, 5, 12.5, 65, drops_lorien_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1.5, elf_immunity, "default:dirt_with_grass", 40000, "Lorien Guard", "default_steel_ingot.png")
-two_lords_mobs.register_elf("forest_guard", 50, 70, textures_guard_elf_3, 21, 2.5, 5, 15, 60, drops_forest_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1, elf_immunity, "default:dirt_with_grass", 40000, "Forest Guard", "default_steel_ingot.png")
+two_lords_mobs.register_elf("rivendell_guard", 70, 90, textures_guard_elf_1, 21, 2.5, 5, 10, 70, drops_rivendell_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 2.5, elf_immunity, "default:dirt_with_grass", 40000, "Rivendell Guard", "default_steel_ingot.png", pickup_item)
+two_lords_mobs.register_elf("lorien_guard", 60, 80, textures_guard_elf_2, 21, 2.5, 5, 12.5, 65, drops_lorien_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1.5, elf_immunity, "default:dirt_with_grass", 40000, "Lorien Guard", "default_steel_ingot.png", pickup_item)
+two_lords_mobs.register_elf("forest_guard", 50, 70, textures_guard_elf_3, 21, 2.5, 5, 15, 60, drops_forest_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1, elf_immunity, "default:dirt_with_grass", 40000, "Forest Guard", "default_steel_ingot.png", pickup_item)
 
 -- Elf Archers
 
@@ -250,8 +260,8 @@ local textures_archer_elf_3 = {
 	{"two_lords_forest_elf.png^two_lords_quiver.png^two_lords_headband.png^two_lords_armor_boots_rivendell.png"},
 }
 
-two_lords_mobs.register_elf("rivendell_archer", 35, 55, textures_archer_elf_1, 25, 3, 6, 7.5, 200, drops_rivendell_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 2.5, elf_immunity, "default:dirt_with_grass", 20000, "Rivendell Archer", "default_leaves.png")
-two_lords_mobs.register_elf("lorien_archer", 40, 60, textures_archer_elf_2, 25, 3, 6, 5, 225, drops_lorien_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 3, elf_immunity, "default:dirt_with_grass", 20000, "Lorien Archer", "default_leaves.png")
-two_lords_mobs.register_elf("forest_archer", 45, 65, textures_archer_elf_3, 25, 3, 6, 10, 250, drops_forest_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 2, elf_immunity, "default:dirt_with_grass", 20000, "Forest Archer", "default_leaves.png")
+two_lords_mobs.register_elf("rivendell_archer", 35, 55, textures_archer_elf_1, 25, 3, 6, 7.5, 200, drops_rivendell_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 2.5, elf_immunity, "default:dirt_with_grass", 20000, "Rivendell Archer", "default_leaves.png", pickup_item)
+two_lords_mobs.register_elf("lorien_archer", 40, 60, textures_archer_elf_2, 25, 3, 6, 5, 225, drops_lorien_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 3, elf_immunity, "default:dirt_with_grass", 20000, "Lorien Archer", "default_leaves.png", pickup_item)
+two_lords_mobs.register_elf("forest_archer", 45, 65, textures_archer_elf_3, 25, 3, 6, 10, 250, drops_forest_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 2, elf_immunity, "default:dirt_with_grass", 20000, "Forest Archer", "default_leaves.png", pickup_item)
 
 minetest.log("action", "elfend")

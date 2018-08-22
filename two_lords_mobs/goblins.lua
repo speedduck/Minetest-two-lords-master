@@ -5,7 +5,7 @@ local S = two_lords_mobs.intllib
 
 -- Goblins
 
-function two_lords_mobs.register_goblin(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg)
+function two_lords_mobs.register_goblin(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg, pitem)
 	mobs:register_mob("two_lords_mobs:" .. n,{
 		type = "monster",
 		hp_min = hpmin,
@@ -63,6 +63,14 @@ function two_lords_mobs.register_goblin(n, hpmin, hpmax, textures, vr, wv, rv, d
 	--			two_lords_mobs.change_player_alignment(clicker, -1)
 	--		end
 		end,
+		on_rightclick = function(self, clicker)
+			tool = clicker:get_wielded_item():get_name()
+			if tool == pitem then
+				clicker:get_inventory():remove_item("main", pitem)
+				clicker:get_inventory():add_item("main", "two_lords_mobs:" .. n)
+				self.object:remove()
+			end
+		end,
 		step = 1,
 	})
 	mobs:spawn({
@@ -74,6 +82,8 @@ function two_lords_mobs.register_goblin(n, hpmin, hpmax, textures, vr, wv, rv, d
 	})
 	mobs:register_egg("two_lords_mobs:" .. n, S(eggdes), eggimg, 1)
 end
+
+local pickup_item = "two_lords_mobs:goblin_contract"
 
 local goblin_immunity = {
 	{"two_lords_ore:sword_steel", 0}, -- no damage
@@ -103,7 +113,7 @@ local spawn_nodes1 = {
 	{"default:desert_sand"},
 }
 
-two_lords_mobs.register_goblin("goblin", 30, 40, textures1, 7, 1.25, 3, 2, 300, drops1, "dogfight", nil, nil, "rings_of_power:evil_ring", 1, goblin_immunity, "default:stone", 2500, "Goblin", "default_stone.png")
+two_lords_mobs.register_goblin("goblin", 30, 40, textures1, 7, 1.25, 3, 2, 300, drops1, "dogfight", nil, nil, "rings_of_power:evil_ring", 1, goblin_immunity, "default:stone", 2500, "Goblin", "default_stone.png", pickup_item)
 
 -- Goblin Guard
 
@@ -152,7 +162,7 @@ local spawn_nodes2 = {
 	{"default:desert_sand"},
 }
 
-two_lords_mobs.register_goblin("goblin_guard", 60, 80, textures2, 10, 1, 2, 6, 100, drops2, "dogfight", nil, nil, "rings_of_power:evil_ring", 2, goblin_immunity, "default:stone", 5000, "Goblin Guard", "default_iron_lump.png")
+two_lords_mobs.register_goblin("goblin_guard", 60, 80, textures2, 10, 1, 2, 6, 100, drops2, "dogfight", nil, nil, "rings_of_power:evil_ring", 2, goblin_immunity, "default:stone", 5000, "Goblin Guard", "default_iron_lump.png", pickup_item)
 
 -- Goblin Archer
 
@@ -201,6 +211,6 @@ local spawn_nodes3 = {
 	node3 = "default:desert_sand",
 }
 
-two_lords_mobs.register_goblin("goblin_archer", 40, 50, textures3, 11, 1.25, 3, 4, 325, drops3, "dogshoot", "two_lords_mobs:orcarrow", 3, "rings_of_power:evil_ring", 1, goblin_immunity, "default:stone", 10000, "Goblin Archer", "default_stone.png")
+two_lords_mobs.register_goblin("goblin_archer", 40, 50, textures3, 11, 1.25, 3, 4, 325, drops3, "dogshoot", "two_lords_mobs:orcarrow", 3, "rings_of_power:evil_ring", 1, goblin_immunity, "default:stone", 10000, "Goblin Archer", "default_stone.png", pickup_item)
 
 minetest.log("action", "goblinend")

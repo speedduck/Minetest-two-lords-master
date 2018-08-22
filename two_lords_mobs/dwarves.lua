@@ -5,7 +5,7 @@ local S = two_lords_mobs.intllib
 
 -- Dwarves
 
-function two_lords_mobs.register_dwarf(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg)
+function two_lords_mobs.register_dwarf(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg, pitem)
 	mobs:register_mob("two_lords_mobs:" .. n,{
 		type = "npc",
 		hp_min = hpmin,
@@ -68,6 +68,14 @@ function two_lords_mobs.register_dwarf(n, hpmin, hpmax, textures, vr, wv, rv, da
 	--			two_lords_mobs.change_player_alignment(clicker, -1)
 	--		end
 		end,
+		on_rightclick = function(self, clicker)
+			tool = clicker:get_wielded_item():get_name()
+			if tool == pitem then
+				clicker:get_inventory():remove_item("main", pitem)
+				clicker:get_inventory():add_item("main", "two_lords_mobs:" .. n)
+				self.object:remove()
+			end
+		end,
 		step = 1,
 	})
 	mobs:spawn({
@@ -79,6 +87,8 @@ function two_lords_mobs.register_dwarf(n, hpmin, hpmax, textures, vr, wv, rv, da
 	})
 	mobs:register_egg("two_lords_mobs:" .. n, S(eggdes), eggimg, 1)
 end
+
+local pickup_item = "two_lords_mobs:dwarf_contract"
 
 local dwarf_immunity = {
 	{"default:sword_gold", 0}, -- no damage
@@ -104,7 +114,7 @@ local drops1 = {
 	max = 1,},
 }
 
-two_lords_mobs.register_dwarf("dwarf", 70, 90, textures1, 8, 1, 3, 3, 200, drops1, "dogfight", nil, nil, "rings_of_power:good_ring", 1, dwarf_immunity, "default:stone", 5000, "Dwarf", "default_stone.png")
+two_lords_mobs.register_dwarf("dwarf", 70, 90, textures1, 8, 1, 3, 3, 200, drops1, "dogfight", nil, nil, "rings_of_power:good_ring", 1, dwarf_immunity, "default:stone", 5000, "Dwarf", "default_stone.png", pickup_item)
 
 -- Dwarf Guards
 
@@ -141,6 +151,6 @@ local drops2 = {
 	max = 1,}
 }
 
-two_lords_mobs.register_dwarf("dwarf_guard", 90, 110, textures2, 10, 1, 2, 8, 60, drops2, "dogfight", nil, nil, "rings_of_power:good_ring", 2.5, dwarf_immunity, "default:stone", 20000, "Dwarf Guard", "default_iron_lump.png")
+two_lords_mobs.register_dwarf("dwarf_guard", 90, 110, textures2, 10, 1, 2, 8, 60, drops2, "dogfight", nil, nil, "rings_of_power:good_ring", 2.5, dwarf_immunity, "default:stone", 20000, "Dwarf Guard", "default_iron_lump.png", pickup_item)
 
 minetest.log("action", "dwarfend")
