@@ -3,6 +3,10 @@ minetest.log("action", "dwarfstart")
 -- Intllib
 local S = two_lords_mobs.intllib
 
+-- 3d Armor
+local use_3darmor = two_lords_mobs.3d_armor
+local use_moreores = minetest.get_modpath("moreores")
+
 -- Dwarves
 
 function two_lords_mobs.register_dwarf(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg, pitem)
@@ -145,11 +149,144 @@ local drops2 = {
 	chance = 400,
 	min = 1,
 	max = 1,},
-	{name = "two_lords_ore:sword_diamond",
+	{name = "default:sword_diamond",
 	chance = 550,
 	min = 1,
 	max = 1,}
 }
+
+if use_3darmor then
+	local drops2 = {
+		{name = "rings_of_power:good_essence",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:helmet_diamond",
+		chance = 800,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_diamond",
+		chance = 1300,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_diamond",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_diamond",
+		chance = 600,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:helmet_khazad_dum",
+		chance = 500,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:chestplate_khazad_dum",
+		chance = 750,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:leggings_khazad_dum",
+		chance = 600,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:boots_khazad_dum",
+		chance = 400,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_diamond",
+		chance = 550,
+		min = 1,
+		max = 1,}
+		{name = "3d_armor:helmet_steel",
+		chance = 250,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_steel",
+		chance = 375,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_steel",
+		chance = 300,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_steel",
+		chance = 200,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_steel",
+		chance = 275,
+		min = 1,
+		max = 1,}
+	}
+	if use_moreores then
+		local drops2 = {
+			{name = "rings_of_power:good_essence",
+			chance = 1000,
+			min = 1,
+			max = 1,},
+			{name = "3d_armor:helmet_mithril",
+			chance = 1000,
+			min = 1,
+			max = 1,},
+			{name = "3d_armor:chestplate_mithril",
+			chance = 1500,
+			min = 1,
+			max = 1,},
+			{name = "3d_armor:leggings_mithril",
+			chance = 1200,
+			min = 1,
+			max = 1,},
+			{name = "3d_armor:boots_mithril",
+			chance = 800,
+			min = 1,
+			max = 1,},
+			{name = "moreores:sword_mithril",
+			chance = 1100,
+			min = 1,
+			max = 1,}
+			{name = "two_lords_armor:helmet_khazad_dum",
+			chance = 500,
+			min = 1,
+			max = 1,},
+			{name = "two_lords_armor:chestplate_khazad_dum",
+			chance = 750,
+			min = 1,
+			max = 1,},
+			{name = "two_lords_armor:leggings_khazad_dum",
+			chance = 600,
+			min = 1,
+			max = 1,},
+			{name = "two_lords_armor:boots_khazad_dum",
+			chance = 400,
+			min = 1,
+			max = 1,},
+			{name = "default:sword_diamond",
+			chance = 550,
+			min = 1,
+			max = 1,}
+			{name = "3d_armor:helmet_steel",
+			chance = 250,
+			min = 1,
+			max = 1,},
+			{name = "3d_armor:chestplate_steel",
+			chance = 375,
+			min = 1,
+			max = 1,},
+			{name = "3d_armor:leggings_steel",
+			chance = 300,
+			min = 1,
+			max = 1,},
+			{name = "3d_armor:boots_steel",
+			chance = 200,
+			min = 1,
+			max = 1,},
+			{name = "default:sword_steel",
+			chance = 275,
+			min = 1,
+			max = 1,}
+		}
+	end
+end
 
 two_lords_mobs.register_dwarf("dwarf_guard", 90, 110, textures2, 10, 1, 2, 8, 60, drops2, "dogfight", nil, nil, "rings_of_power:good_ring", 2.5, dwarf_immunity, "default:stone", 20000, "Dwarf Guard", "default_iron_lump.png", pickup_item)
 

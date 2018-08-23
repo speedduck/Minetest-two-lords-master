@@ -3,6 +3,9 @@ minetest.log("action", "elfstart")
 -- Intllib
 local S = two_lords_mobs.intllib
 
+-- 3d Armor
+local use_3darmor = two_lords_mobs.3d_armor
+
 -- Elves
 
 function two_lords_mobs.register_elf(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg, pitem)
@@ -137,7 +140,7 @@ local drops_basic_elf = {
 	max = 3,}
 }
 
-two_lords_mobs.register_elf("elf", 40, 60, textures_basic_elf, 20, 2, 4, 5, 250, drops_basic_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1, elf_immunity, "default:dirt_with_grass", 10000, "Elf", "default_tree.png", pickup_item)
+two_lords_mobs.register_elf("elf", 40, 60, textures_basic_elf, 20, 2.5, 5, 5, 250, drops_basic_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1, elf_immunity, "default:dirt_with_grass", 100000, "Elf", "default_tree.png", pickup_item)
 
 -- Elf Guards
 
@@ -224,6 +227,10 @@ local drops_forest_elf = {
 	chance = 50,
 	min = 1,
 	max = 3,},
+	{name = "default:sword_steel",
+	chance = 175,
+	min = 1,
+	max = 1,}
 	{name = "two_lords_armor:helmet_forest",
 	chance = 150,
 	min = 1,
@@ -242,9 +249,220 @@ local drops_forest_elf = {
 	max = 1,}
 }
 
-two_lords_mobs.register_elf("rivendell_guard", 70, 90, textures_guard_elf_1, 21, 2.5, 5, 10, 70, drops_rivendell_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 2.5, elf_immunity, "default:dirt_with_grass", 40000, "Rivendell Guard", "default_steel_ingot.png", pickup_item)
-two_lords_mobs.register_elf("lorien_guard", 60, 80, textures_guard_elf_2, 21, 2.5, 5, 12.5, 65, drops_lorien_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1.5, elf_immunity, "default:dirt_with_grass", 40000, "Lorien Guard", "default_steel_ingot.png", pickup_item)
-two_lords_mobs.register_elf("forest_guard", 50, 70, textures_guard_elf_3, 21, 2.5, 5, 15, 60, drops_forest_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1, elf_immunity, "default:dirt_with_grass", 40000, "Forest Guard", "default_steel_ingot.png", pickup_item)
+if use_3darmor then
+	local drops_rivendell_elf = {
+		{name = "rings_of_power:good_essence",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_mobs:lembas_bread",
+		chance = 300,
+		min = 1,
+		max = 3,},
+		{name = "3d_armor:helmet_diamond",
+		chance = 800,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_diamond",
+		chance = 1300,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_diamond",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_diamond",
+		chance = 600,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_diamond",
+		chance = 900,
+		min = 1,
+		max = 1,}
+		{name = "two_lords_armor:helmet_rivendell",
+		chance = 450,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:chestplate_rivendell",
+		chance = 700,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:leggings_rivendell",
+		chance = 550,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:boots_rivendell",
+		chance = 350,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_ore:sword_rivendell",
+		chance = 350,
+		min = 1,
+		max = 1,}
+		{name = "3d_armor:helmet_steel",
+		chance = 225,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_steel",
+		chance = 350,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_steel",
+		chance = 280,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_steel",
+		chance = 175,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_steel",
+		chance = 175,
+		min = 1,
+		max = 1,}
+	}
+
+	local drops_lorien_elf = {
+		{name = "rings_of_power:good_essence",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_mobs:lembas_bread",
+		chance = 200,
+		min = 1,
+		max = 3,},
+		{name = "3d_armor:helmet_diamond",
+		chance = 800,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_diamond",
+		chance = 1300,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_diamond",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_diamond",
+		chance = 600,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_diamond",
+		chance = 900,
+		min = 1,
+		max = 1,}
+		{name = "two_lords_armor:helmet_lorien",
+		chance = 450,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:chestplate_lorien",
+		chance = 700,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:leggings_lorien",
+		chance = 560,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:boots_lorien",
+		chance = 350,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_ore:sword_lorien",
+		chance = 350,
+		min = 1,
+		max = 1,}
+		{name = "3d_armor:helmet_steel",
+		chance = 225,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_steel",
+		chance = 350,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_steel",
+		chance = 280,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_steel",
+		chance = 175,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_steel",
+		chance = 175,
+		min = 1,
+		max = 1,}
+	}
+
+	local drops_forest_elf = {
+		{name = "rings_of_power:good_essence",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_mobs:lembas_bread",
+		chance = 50,
+		min = 1,
+		max = 3,},
+		{name = "3d_armor:helmet_diamond",
+		chance = 800,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_diamond",
+		chance = 1300,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_diamond",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_diamond",
+		chance = 600,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_diamond",
+		chance = 900,
+		min = 1,
+		max = 1,}
+		{name = "3d_armor:helmet_steel",
+		chance = 225,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_steel",
+		chance = 350,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_steel",
+		chance = 280,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_steel",
+		chance = 175,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_steel",
+		chance = 175,
+		min = 1,
+		max = 1,}
+		{name = "two_lords_armor:helmet_forest",
+		chance = 150,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:chestplate_forest",
+		chance = 400,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:leggings_forest",
+		chance = 250,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:boots_forest",
+		chance = 50,
+		min = 1,
+		max = 1,}
+	}
+end
+
+two_lords_mobs.register_elf("rivendell_guard", 70, 90, textures_guard_elf_1, 21, 2.125, 4.25, 10, 70, drops_rivendell_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 2.5, elf_immunity, "default:dirt_with_grass", 400000, "Rivendell Guard", "default_steel_ingot.png", pickup_item)
+two_lords_mobs.register_elf("lorien_guard", 60, 80, textures_guard_elf_2, 21, 2.125, 4.25, 12.5, 65, drops_lorien_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1.5, elf_immunity, "default:dirt_with_grass", 400000, "Lorien Guard", "default_steel_ingot.png", pickup_item)
+two_lords_mobs.register_elf("forest_guard", 50, 70, textures_guard_elf_3, 21, 2.125, 4.25, 15, 60, drops_forest_elf, "dogfight", nil, nil, "rings_of_power:good_ring", 1, elf_immunity, "default:dirt_with_grass", 400000, "Forest Guard", "default_steel_ingot.png", pickup_item)
 
 -- Elf Archers
 
@@ -260,8 +478,8 @@ local textures_archer_elf_3 = {
 	{"two_lords_forest_elf.png^two_lords_quiver.png^two_lords_headband.png^two_lords_armor_boots_rivendell.png"},
 }
 
-two_lords_mobs.register_elf("rivendell_archer", 35, 55, textures_archer_elf_1, 25, 3, 6, 7.5, 200, drops_rivendell_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 2.5, elf_immunity, "default:dirt_with_grass", 20000, "Rivendell Archer", "default_leaves.png", pickup_item)
-two_lords_mobs.register_elf("lorien_archer", 40, 60, textures_archer_elf_2, 25, 3, 6, 5, 225, drops_lorien_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 3, elf_immunity, "default:dirt_with_grass", 20000, "Lorien Archer", "default_leaves.png", pickup_item)
-two_lords_mobs.register_elf("forest_archer", 45, 65, textures_archer_elf_3, 25, 3, 6, 10, 250, drops_forest_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 2, elf_immunity, "default:dirt_with_grass", 20000, "Forest Archer", "default_leaves.png", pickup_item)
+two_lords_mobs.register_elf("rivendell_archer", 35, 55, textures_archer_elf_1, 25, 2.5, 5, 7.5, 200, drops_rivendell_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 2.5, elf_immunity, "default:dirt_with_grass", 200000, "Rivendell Archer", "default_leaves.png", pickup_item)
+two_lords_mobs.register_elf("lorien_archer", 40, 60, textures_archer_elf_2, 25, 2.5, 5, 5, 225, drops_lorien_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 3, elf_immunity, "default:dirt_with_grass", 200000, "Lorien Archer", "default_leaves.png", pickup_item)
+two_lords_mobs.register_elf("forest_archer", 45, 65, textures_archer_elf_3, 25, 2.5, 5, 10, 250, drops_forest_elf, "dogshoot", "two_lords_mobs:elfarrow", 1, "rings_of_power:good_ring", 2, elf_immunity, "default:dirt_with_grass", 200000, "Forest Archer", "default_leaves.png", pickup_item)
 
 minetest.log("action", "elfend")

@@ -113,10 +113,10 @@ for k, v in pairs(wood) do
 end
 
 local contracts = {
-	elf = 'tree 5',
-	dwarf = 'steel_ingot 2',
-	orc = 'sword_steel',
-	goblin = 'stone 3'
+	elf = 'tree',
+	dwarf = 'iron_lump',
+	orc = 'clay',
+	goblin = 'cobble'
 }
 
 for k, v in pairs(contracts) do
@@ -130,7 +130,7 @@ for k, v in pairs(contracts) do
 end
 
 minetest.register_craft({
-	output = "two_lords_mobs:parchment 4",
+	output = "two_lords_mobs:parchment 3",
 	recipe = {
 		{"default:paper", "default:paper"},
 		{"default:paper", "default:paper"},
@@ -161,4 +161,11 @@ minetest.register_craft({
 	output = "two_lords_mobs:lamb_cooked",
 	recipe = "two_lords_mobs:lamb_raw",
 	cooktime = 5,
+})
+
+minetest.register_craft({
+	type = "cooking",
+	output = "two_lords_mobs:parchment",
+	recipe = "default:paper",
+	cooktime = 6,
 })

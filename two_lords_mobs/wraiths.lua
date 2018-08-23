@@ -50,9 +50,9 @@ function two_lords_mobs.register_nazgul(n, hpmin, hpmax, collisionbox, textures,
 --		},
 		jump = true,
 		reach = rch,
-		attacks_monsters = true,
+		attacks_monsters = false,
 		group_attack = true,
-		peaceful = true,
+		peaceful = false,
 		immune_to = immunity,
 		on_click = function(self, clicker)
 	--		self.peaceful = false
@@ -136,6 +136,6 @@ local spawn_nodes1 = {
 	{"default:stone"},
 }
 
-two_lords_mobs.register_nazgul("sauron", 10000, 12000, {-0.6, -2.0, -0.6, 0.6, 1.6, 0.6}, textures2, 2, 2, 20, 1, 2, 100, 10, 20, drops2, "dogfight", nil, nil, nil, 4, nazgul_immunity, 3, "default:dirt_with_grass", 1000000000000, "Sauron", "default_obsidian.png")
+two_lords_mobs.register_nazgul("sauron", 10000, 12000, {-0.6, -2.0, -0.6, 0.6, 1.6, 0.6}, textures2, 2, 2, 30, 1, 2, 100, 10, 20, drops2, "dogfight", nil, nil, nil, 4, nazgul_immunity, 3, "default:dirt_with_grass", 1000000000000, "Sauron", "default_obsidian.png")
 
 minetest.log("action", "wraithend")

@@ -3,6 +3,9 @@ minetest.log("action", "orcstart")
 -- Intllib
 local S = two_lords_mobs.intllib
 
+-- 3d Armor
+local use_3darmor = two_lords_mobs.3d_armor
+
 -- Orcs
 
 function two_lords_mobs.register_orc(n, hpmin, hpmax, textures, vr, wv, rv, damg, arm, drops, atcktp, arrow, shtint, follow, rch, immunity, spnnodes, spnchance, eggdes, eggimg, pitem)
@@ -48,7 +51,7 @@ function two_lords_mobs.register_orc(n, hpmin, hpmax, textures, vr, wv, rv, damg
 --			random = "two_lords_elf",
 --			attack = "fight_sound",
 --		},
-		attacks_monsters = true,
+		attacks_monsters = false,
 		group_attack = true,
 		peaceful = false,
 		jump = true,
@@ -150,7 +153,7 @@ local spawn_nodes1 = {
 	{"default:desert_sand"},
 }
 
-two_lords_mobs.register_orc("orc", 50, 60, textures1, 17.5, 2.5, 5, 6, 250, drops1, "dogfight", nil, nil, "rings_of_power:evil_ring", 1, orc_immunity, "default:dirt_with_grass", 10000, "Orc", "default_stone.png", pickup_item)
+two_lords_mobs.register_orc("orc", 50, 60, textures1, 17.5, 2, 4, 6, 250, drops1, "dogfight", nil, nil, "rings_of_power:evil_ring", 1, orc_immunity, "default:dirt_with_grass", 50000, "Orc", "default_stone.png", pickup_item)
 
 -- Orc Guard
 
@@ -191,13 +194,86 @@ local drops2 = {
 	max = 1,}
 }
 
+if use_3darmor then
+	local drops2 = {
+		{name = "rings_of_power:evil_essence",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_mobs:orcish_medicine",
+		chance = 250,
+		min = 1,
+		max = 2,},
+		{name = "3d_armor:helmet_diamond",
+		chance = 800,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_diamond",
+		chance = 1300,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_diamond",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_diamond",
+		chance = 600,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_diamond",
+		chance = 900,
+		min = 1,
+		max = 1,}
+		{name = "two_lords_armor:helmet_gundabad",
+		chance = 450,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:chestplate_gundabad",
+		chance = 700,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:leggings_gundabad",
+		chance = 550,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:boots_gundabad",
+		chance = 350,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_ore:sword_gundabad",
+		chance = 350,
+		min = 1,
+		max = 1,}
+		{name = "3d_armor:helmet_steel",
+		chance = 225,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_steel",
+		chance = 350,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_steel",
+		chance = 275,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_steel",
+		chance = 175,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_steel",
+		chance = 175,
+		min = 1,
+		max = 1,}
+	}
+end
+
 local spawn_nodes2 = {
 	{"default:dirt_with_grass"},
 	{"default:stone"},
 	{"default:desert_sand"},
 }
 
-two_lords_mobs.register_orc("orc_guard", 60, 80, textures2, 17.5, 2, 4, 10, 75, drops2, "dogfight", nil, nil, "rings_of_power:evil_ring", 2, orc_immunity, "default:dirt_with_grass", 20000, "Orc Guard", "default_stone.png", pickup_item)
+two_lords_mobs.register_orc("orc_guard", 60, 80, textures2, 17.5, 1.5, 3, 10, 75, drops2, "dogfight", nil, nil, "rings_of_power:evil_ring", 2, orc_immunity, "default:dirt_with_grass", 100000, "Orc Guard", "default_stone.png", pickup_item)
 
 -- Orc Archer
 
@@ -238,12 +314,85 @@ local drops3 = {
 	max = 1,}
 }
 
+if use_3darmor then
+	local drops3 = {
+		{name = "rings_of_power:evil_essence",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_mobs:orcish_medicine",
+		chance = 250,
+		min = 1,
+		max = 2,},
+		{name = "3d_armor:helmet_diamond",
+		chance = 800,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_diamond",
+		chance = 1300,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_diamond",
+		chance = 1000,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_diamond",
+		chance = 600,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_diamond",
+		chance = 900,
+		min = 1,
+		max = 1,}
+		{name = "two_lords_armor:helmet_gundabad",
+		chance = 450,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:chestplate_gundabad",
+		chance = 700,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:leggings_gundabad",
+		chance = 550,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_armor:boots_gundabad",
+		chance = 350,
+		min = 1,
+		max = 1,},
+		{name = "two_lords_ore:sword_gundabad",
+		chance = 350,
+		min = 1,
+		max = 1,}
+		{name = "3d_armor:helmet_steel",
+		chance = 225,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:chestplate_steel",
+		chance = 350,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:leggings_steel",
+		chance = 275,
+		min = 1,
+		max = 1,},
+		{name = "3d_armor:boots_steel",
+		chance = 175,
+		min = 1,
+		max = 1,},
+		{name = "default:sword_steel",
+		chance = 175,
+		min = 1,
+		max = 1,}
+	}
+end
+
 local spawn_nodes3 = {
 	node1 = "default:dirt_with_grass",
 	node2 = "default:stone",
 	node3 = "default:desert_sand",
 }
 
-two_lords_mobs.register_orc("orc_archer", 45, 65, textures3, 17.5, 1, 2, 7.5, 300, drops3, "dogshoot", "two_lords_mobs:orcarrow", 3, "rings_of_power:evil_ring", 1, orc_immunity, "default:dirt_with_grass", 40000, "Orc Archer", "default_stone.png", pickup_item)
+two_lords_mobs.register_orc("orc_archer", 45, 65, textures3, 17.5, 1, 2, 7.5, 300, drops3, "dogshoot", "two_lords_mobs:orcarrow", 3, "rings_of_power:evil_ring", 1, orc_immunity, "default:dirt_with_grass", 200000, "Orc Archer", "default_stone.png", pickup_item)
 
 minetest.log("action", "orcend")
