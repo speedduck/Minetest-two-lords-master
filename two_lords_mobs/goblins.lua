@@ -188,7 +188,7 @@ if use_3darmor then
 		{name = "default:sword_diamond",
 		chance = 900,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "two_lords_armor:helmet_goblin",
 		chance = 75,
 		min = 1,
@@ -212,7 +212,7 @@ if use_3darmor then
 		{name = "two_lords_ore:sword_gundabad",
 		chance = 350,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "3d_armor:helmet_steel",
 		chance = 225,
 		min = 1,
@@ -314,7 +314,7 @@ if use_3darmor then
 		{name = "default:sword_diamond",
 		chance = 900,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "two_lords_armor:helmet_goblin",
 		chance = 75,
 		min = 1,
@@ -338,7 +338,7 @@ if use_3darmor then
 		{name = "two_lords_ore:sword_gundabad",
 		chance = 350,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "3d_armor:helmet_steel",
 		chance = 225,
 		min = 1,

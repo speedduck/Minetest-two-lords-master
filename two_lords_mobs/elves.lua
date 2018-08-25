@@ -230,7 +230,7 @@ local drops_forest_elf = {
 	{name = "default:sword_steel",
 	chance = 175,
 	min = 1,
-	max = 1,}
+	max = 1,},
 	{name = "two_lords_armor:helmet_forest",
 	chance = 150,
 	min = 1,
@@ -278,7 +278,7 @@ if use_3darmor then
 		{name = "default:sword_diamond",
 		chance = 900,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "two_lords_armor:helmet_rivendell",
 		chance = 450,
 		min = 1,
@@ -298,7 +298,7 @@ if use_3darmor then
 		{name = "two_lords_ore:sword_rivendell",
 		chance = 350,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "3d_armor:helmet_steel",
 		chance = 225,
 		min = 1,
@@ -349,7 +349,7 @@ if use_3darmor then
 		{name = "default:sword_diamond",
 		chance = 900,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "two_lords_armor:helmet_lorien",
 		chance = 450,
 		min = 1,
@@ -369,7 +369,7 @@ if use_3darmor then
 		{name = "two_lords_ore:sword_lorien",
 		chance = 350,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "3d_armor:helmet_steel",
 		chance = 225,
 		min = 1,
@@ -420,7 +420,7 @@ if use_3darmor then
 		{name = "default:sword_diamond",
 		chance = 900,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "3d_armor:helmet_steel",
 		chance = 225,
 		min = 1,
@@ -440,7 +440,7 @@ if use_3darmor then
 		{name = "default:sword_steel",
 		chance = 175,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "two_lords_armor:helmet_forest",
 		chance = 150,
 		min = 1,

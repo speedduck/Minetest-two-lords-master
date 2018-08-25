@@ -196,7 +196,7 @@ if use_3darmor then
 		{name = "default:sword_diamond",
 		chance = 550,
 		min = 1,
-		max = 1,}
+		max = 1,},
 		{name = "3d_armor:helmet_steel",
 		chance = 250,
 		min = 1,
@@ -243,7 +243,7 @@ if use_3darmor then
 			{name = "moreores:sword_mithril",
 			chance = 1100,
 			min = 1,
-			max = 1,}
+			max = 1,},
 			{name = "two_lords_armor:helmet_khazad_dum",
 			chance = 500,
 			min = 1,
@@ -263,7 +263,7 @@ if use_3darmor then
 			{name = "default:sword_diamond",
 			chance = 550,
 			min = 1,
-			max = 1,}
+			max = 1,},
 			{name = "3d_armor:helmet_steel",
 			chance = 250,
 			min = 1,
