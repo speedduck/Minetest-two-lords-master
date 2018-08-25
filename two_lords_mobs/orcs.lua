@@ -4,7 +4,7 @@ minetest.log("action", "orcstart")
 local S = two_lords_mobs.intllib
 
 -- 3d Armor
-local use_3darmor = two_lords_mobs.3d_armor
+local use_3darmor = minetest.get_modpath("3d_armor")
 
 -- Orcs
 
